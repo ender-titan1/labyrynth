@@ -9,4 +9,15 @@ public class Pickup : MonoBehaviour
         Debug.Log("Picked Up!");
         Destroy(gameObject);
     }
+
+    private void Update()
+    {
+        Rotate();
+    }
+
+    private void Rotate()
+    {
+        Vector3 rotationVector = new Vector3(5, 0, 0);
+        transform.Rotate(rotationVector);
+    }
 }

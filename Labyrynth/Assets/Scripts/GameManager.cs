@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     }
 
     public static GameManager Instance { get; set; }
-    [SerializeField] private int timeToEnd;
+    public int timeToEnd;
+    public int score;
 
     // Pausing 
     public bool isPaused = false;

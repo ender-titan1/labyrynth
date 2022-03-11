@@ -337,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247c37120a4c5e54194f148a89522b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  change: 0
 --- !u!136 &453828717
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -542,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ab3da70f582fc428350ec597d998d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 2
 --- !u!136 &516393271
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1014,6 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b833a9ad17c20cd4e9d7708f120db292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  change: 0
 --- !u!1 &1659500313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,6 +1156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToEnd: 10
+  score: 0
   isPaused: 0
   scheme:
     pauseBind: 27
@@ -1299,6 +1303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247c37120a4c5e54194f148a89522b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  change: 0
 --- !u!136 &2129966211
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class ScoreModifier : Pickup
 {
+    [SerializeField] private int change;
+
     public override void PickedUp()
     {
-        Debug.Log("Coin!");
+        GameManager.Instance.score += change;
         base.PickedUp();
     }
 }
