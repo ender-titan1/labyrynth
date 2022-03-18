@@ -9,18 +9,39 @@ public class GameManager : MonoBehaviour
     public struct ControlScheme
     {
         public KeyCode pauseBind;
+        public KeyCode printBind;
     }
 
     public static GameManager Instance { get; set; }
-    public int timeToEnd;
-    public int score;
+    private int timeToEnd;
+
+    public int TimeToEnd
+    {
+        get => timeToEnd;
+        set => timeToEnd = value;
+    }
+
+    private int score;
+
+    public int Score
+    {
+        get => score;
+        set => score = value;
+    }
 
     // Pausing 
-    public bool isPaused = false;
-    public ControlScheme scheme;
+    private bool isPaused = false;
+
+    [SerializeField]
+    private ControlScheme scheme;
 
     // Ending
     public GameState state;
+
+    // Keys
+    private int redKeys;
+    private int greenKeys;
+    private int goldKeys;
 
     private void Awake()
     {
@@ -38,6 +59,22 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        CheckPause();
+        PrintInfo();
+    }
+
+    private void PrintInfo()
+    {
+        if (Input.GetKeyDown(scheme.printBind))
+        {
+            Debug.Log($"Time left: {timeToEnd}");
+            Debug.Log($"Keys:\n\tGreen: {greenKeys}, Red: {redKeys}, Gold: {goldKeys}");
+            Debug.Log($"Score: {score}");
+        }
+    }
+
+    private void CheckPause()
+    {
         if (Input.GetKeyDown(scheme.pauseBind))
         {
             if (isPaused)
@@ -50,7 +87,7 @@ public class GameManager : MonoBehaviour
     private void Stopper()
     {
         timeToEnd--;
-        Debug.Log(timeToEnd);
+        //Debug.Log(timeToEnd, gameObject);
 
         if (timeToEnd <= 0)
             EndGame(GameState.Timeout);
@@ -72,6 +109,29 @@ public class GameManager : MonoBehaviour
             Debug.Log("Won!");
         }
     }
+
+    public void FreezeTime(float time)
+    {
+        CancelInvoke("Stopper");
+        InvokeRepeating("Stopper", time, 1);
+    }
+
+    public void AddKey(Key.KeyColor key)
+    {
+        switch (key)
+        {
+            case Key.KeyColor.Red:
+                redKeys++;
+                break;
+            case Key.KeyColor.Green:
+                greenKeys++;
+                break;
+            case Key.KeyColor.Gold:
+                goldKeys++;
+                break;
+        }
+    }
+
 
     #region Pause
 

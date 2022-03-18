@@ -7,9 +7,7 @@ public class Freeze : Pickup
 
     public override void PickedUp()
     {
-        GameManager.Instance.CancelInvoke("Stopper");
-        GameManager.Instance.InvokeRepeating("Stopper", time, 1);
-
+        GameManager.Instance.FreezeTime(time);
         base.PickedUp();
     }
 

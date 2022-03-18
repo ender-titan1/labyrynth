@@ -7,7 +7,7 @@ public class ScoreModifier : Pickup
 
     public override void PickedUp()
     {
-        GameManager.Instance.score += change;
+        GameManager.Instance.Score += change;
         base.PickedUp();
     }
 }

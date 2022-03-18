@@ -7,7 +7,7 @@ public class TimeModifier : Pickup
 
     public override void PickedUp()
     {
-        GameManager.Instance.timeToEnd += change;
+        GameManager.Instance.TimeToEnd += change;
         base.PickedUp();
     }
 }

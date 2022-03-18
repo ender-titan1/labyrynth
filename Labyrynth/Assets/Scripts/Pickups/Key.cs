@@ -3,7 +3,19 @@ using UnityEngine;
 
 public class Key : Pickup
 {
-    public static int greenKeys;
-    public static int redKeys;
-    public static int goldKeys;
+    public enum KeyColor
+    {
+        Red,
+        Green,
+        Gold
+    }
+
+    [SerializeField] private KeyColor color;
+
+    public override void PickedUp()
+    {
+        GameManager.Instance.AddKey(color);
+        base.PickedUp();
+    }
+
 }
